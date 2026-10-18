@@ -1,6 +1,6 @@
 <div align="center">
 
-# 💚 Controle Financeiro Inteligente — Frontend
+#  Controle Financeiro Inteligente — Frontend
 
 **Aplicação web de finanças pessoais com assistente de IA que transforma frases em lançamentos.**
 
@@ -24,7 +24,7 @@ React · Vite · Axios · Recharts · Framer Motion — integrada a uma API REST
 
 ---
 
-## 📌 Sobre o projeto
+##  Sobre o projeto
 
 O **Controle Financeiro Inteligente** é um sistema completo de finanças pessoais que desenvolvi de ponta a ponta:
 primeiro o [backend em Spring Boot](https://github.com/mtmattoz/Controle-Financeiro-Backend) e depois este frontend em React.
@@ -47,24 +47,24 @@ e o sistema identifica o tipo, o valor, a descrição, a categoria e a data. O u
 
 ---
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
 | Área | O que faz |
 |---|---|
-| 🔐 **Login e cadastro** | Criação de conta e login com validação no front espelhando as regras do backend (senha ≥ 6, nome único) e mensagens de erro claras. |
-| 📊 **Dashboard** | Saldo atual, total de entradas e saídas, resultado do mês selecionado, gráfico de entradas × saídas dos últimos 6 meses, evolução do saldo acumulado, despesas por categoria (rosca) e movimentações recentes. |
-| 🔁 **Transações** | Cadastro de entradas e saídas com categoria, filtros por tipo e categoria (usando as rotas da API), busca por descrição, filtro por período e exclusão com confirmação. |
-| 💰 **Receitas** | Registro de receitas (salário, freelas…), totais do mês e geral, busca e filtro por mês. |
-| 🏷️ **Categorias** | Criação e exclusão, ícone e cor automáticos pelo nome, e estatísticas de uso (quantidade e valores por categoria). |
-| 📈 **Relatórios** | Bloco acumulado (calculado pelo backend), relatório mensal com despesas por categoria, evolução dia a dia, tabela detalhada e **exportação CSV**. |
-| 🤖 **Assistente IA** | Conversa em linguagem natural → card de confirmação editável → salvamento só após clique explícito. Se a IA sugerir uma categoria que não existe, o usuário escolhe outra ou cria essa com um clique. |
-| ⚙️ **Perfil e configurações** | Dados da conta, teste de conexão com a API e transparência sobre as limitações de segurança atuais do backend. |
+|  **Login e cadastro** | Criação de conta e login com validação no front espelhando as regras do backend (senha ≥ 6, nome único) e mensagens de erro claras. |
+|  **Dashboard** | Saldo atual, total de entradas e saídas, resultado do mês selecionado, gráfico de entradas × saídas dos últimos 6 meses, evolução do saldo acumulado, despesas por categoria (rosca) e movimentações recentes. |
+|  **Transações** | Cadastro de entradas e saídas com categoria, filtros por tipo e categoria (usando as rotas da API), busca por descrição, filtro por período e exclusão com confirmação. |
+|  **Receitas** | Registro de receitas (salário, freelas…), totais do mês e geral, busca e filtro por mês. |
+|  **Categorias** | Criação e exclusão, ícone e cor automáticos pelo nome, e estatísticas de uso (quantidade e valores por categoria). |
+|  **Relatórios** | Bloco acumulado (calculado pelo backend), relatório mensal com despesas por categoria, evolução dia a dia, tabela detalhada e **exportação CSV**. |
+|  **Assistente IA** | Conversa em linguagem natural → card de confirmação editável → salvamento só após clique explícito. Se a IA sugerir uma categoria que não existe, o usuário escolhe outra ou cria essa com um clique. |
+|  **Perfil e configurações** | Dados da conta, teste de conexão com a API e transparência sobre as limitações de segurança atuais do backend. |
 
 **Experiência:** layout responsivo (sidebar recolhível no desktop e menu lateral no celular), tema claro com identidade em verde esmeralda,
 animações discretas com Framer Motion (respeitando `prefers-reduced-motion`), valores em R$ e datas no padrão brasileiro.
 
-<!--
-📸 PRINTS DAS TELAS
+
+ PRINTS DAS TELAS
 Salve capturas em docs/screenshots/ com estes nomes e remova este comentário para exibi-las:
 
 <p align="center">
@@ -74,11 +74,11 @@ Salve capturas em docs/screenshots/ com estes nomes e remova este comentário pa
   <img src="docs/screenshots/assistente.png" alt="Assistente IA" width="42%" />
   <img src="docs/screenshots/relatorios.png" alt="Relatórios" width="42%" />
 </p>
--->
+
 
 ---
 
-## 🏗️ Arquitetura
+##  Arquitetura
 
 ```mermaid
 flowchart LR
@@ -123,7 +123,7 @@ sequenceDiagram
 
 ---
 
-## 🧰 Tecnologias
+##  Tecnologias
 
 | Camada | Tecnologias |
 |---|---|
@@ -134,7 +134,7 @@ Não usei frameworks de UI prontos: o design system (cores, cards, formulários,
 
 ---
 
-## 📁 Estrutura de pastas
+##  Estrutura de pastas
 
 O código é separado por responsabilidade. HTML, CSS e JavaScript ficam em lugares diferentes, e cada pasta tem um papel claro:
 
@@ -180,7 +180,7 @@ controle-financeiro-frontend/
 
 ---
 
-## 🚀 Como rodar o projeto
+##  Como rodar o projeto
 
 ### Pré-requisitos
 
@@ -231,7 +231,7 @@ npm run dev
 
 Acesse **http://localhost:5173**, crie uma conta e comece a registrar suas movimentações.
 
-> ⚠️ **Use a porta 5173.** O backend só libera requisições (CORS) dessa origem. O projeto já está configurado para não trocar de porta.
+>  **Use a porta 5173.** O backend só libera requisições (CORS) dessa origem. O projeto já está configurado para não trocar de porta.
 
 ### Variáveis de ambiente
 
@@ -257,7 +257,7 @@ Acesse **http://localhost:5173**, crie uma conta e comece a registrar suas movim
 
 ---
 
-## 🧠 Decisões técnicas
+##  Decisões técnicas
 
 **Contrato primeiro, tela depois.** Antes de escrever componentes, li todos os controllers, entidades e o `GlobalExceptionHandler` do backend
 e documentei cada rota em [`docs/API_ENDPOINTS.md`](docs/API_ENDPOINTS.md). Por exemplo: receita e transação têm contratos diferentes
@@ -281,7 +281,7 @@ animações desativadas para quem usa `prefers-reduced-motion`.
 
 ---
 
-## 🔭 Próximos passos
+##  Próximos passos
 
 Pontos que identifiquei durante a integração e que estão no meu roadmap:
 
@@ -294,9 +294,9 @@ Pontos que identifiquei durante a integração e que estão no meu roadmap:
 
 ---
 
-## 👤 Autor
+##  Autor
 
-**Mateus Mattos**
+**Mateus de Mattos Villar**
 
 [![GitHub](https://img.shields.io/badge/GitHub-mtmattoz-181717?logo=github)](https://github.com/mtmattoz)
 <!-- Adicione seu LinkedIn: [![LinkedIn](https://img.shields.io/badge/LinkedIn-seu--perfil-0A66C2?logo=linkedin)](https://www.linkedin.com/in/seu-perfil) -->

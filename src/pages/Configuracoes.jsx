@@ -6,10 +6,7 @@ import { API_URL, mensagemDeErro } from '../services/api';
 import * as categoriaService from '../services/categoriaService';
 import { formatarDataHora, iniciais } from '../utils/format';
 
-/**
- * Perfil e configurações. O backend não tem rotas para consultar, editar ou excluir
- * o usuário, então o perfil mostra os dados devolvidos no login e não oferece edição.
- */
+
 export default function Configuracoes() {
   const { usuario, logout } = useAuth();
   const [teste, setTeste] = useState({ estado: 'parado', mensagem: '' });
