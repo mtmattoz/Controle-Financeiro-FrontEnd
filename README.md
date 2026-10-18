@@ -299,6 +299,6 @@ Pontos que identifiquei durante a integração e que estão no meu roadmap:
 **Mateus de Mattos Villar**
 
 [![GitHub](https://img.shields.io/badge/GitHub-mtmattoz-181717?logo=github)](https://github.com/mtmattoz)
-<!-- Adicione seu LinkedIn: [![LinkedIn](https://img.shields.io/badge/LinkedIn-seu--perfil-0A66C2?logo=linkedin)](https://www.linkedin.com/in/seu-perfil) -->
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-mateusdemattos-0A66C2?logo=linkedin)](https://www.linkedin.com/in/mateusdemattos)
 
 Se este projeto foi útil ou interessante para você, deixe uma ⭐ no repositório!
