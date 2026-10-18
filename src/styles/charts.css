@@ -1,0 +1,135 @@
+/* ==========================================================================
+   GRÁFICOS — tooltip e gráfico de rosca (Recharts).
+   ========================================================================== */
+
+.grafico-tooltip {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 10px 12px;
+  min-width: 170px;
+  font-size: 13px;
+}
+
+.grafico-tooltip__titulo {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.grafico-tooltip__linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.grafico-tooltip__linha i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.grafico-tooltip__linha span {
+  flex: 1;
+  color: var(--texto-secundario);
+}
+
+.grafico-tooltip__linha strong {
+  font-weight: 800;
+}
+
+/* Recharts: remove o contorno de foco ao clicar */
+.recharts-wrapper,
+.recharts-surface,
+.recharts-sector {
+  outline: none;
+}
+
+.recharts-legend-item-text {
+  color: var(--texto-secundario) !important;
+  font-weight: 600;
+}
+
+/* Rosca ------------------------------------------------------------------- */
+
+.donut {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.donut__grafico {
+  position: relative;
+}
+
+.donut__centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut__centro span {
+  color: var(--texto-suave);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.donut__centro strong {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.donut__legenda {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.donut__legenda li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.donut__legenda i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.donut__nome {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--texto-secundario);
+  font-weight: 600;
+}
+
+.donut__pct {
+  color: var(--texto-suave);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.donut__legenda strong {
+  font-weight: 800;
+  text-align: right;
+}
+
+.donut__mais {
+  display: block !important;
+  color: var(--texto-suave);
+  font-size: 12.5px;
+  padding-left: 20px;
+}

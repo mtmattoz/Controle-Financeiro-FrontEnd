@@ -1,0 +1,147 @@
+/* ==========================================================================
+   PÁGINAS — Login e Cadastro
+   ========================================================================== */
+
+.auth {
+  display: grid;
+  grid-template-columns: minmax(380px, 46%) 1fr;
+  min-height: 100vh;
+}
+
+.auth__marca {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 40px 48px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.18), transparent 45%),
+    linear-gradient(160deg, #ecfdf5 0%, #f5faf8 55%, #ffffff 100%);
+  border-right: 1px solid var(--borda);
+  overflow: hidden;
+}
+
+.auth__chamada {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+}
+
+.auth__chamada h2 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  margin-bottom: 14px;
+}
+
+.auth__chamada p {
+  color: var(--texto-secundario);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.auth__chamada ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth__chamada li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--texto-secundario);
+}
+
+.auth__chamada li svg {
+  color: var(--marca);
+}
+
+/* Barras decorativas (sem dados — só ilustração) */
+.auth__decoracao {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 140px;
+  opacity: 0.9;
+}
+
+.auth__decoracao span {
+  flex: 1;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, #34d399, #059669);
+  transform-origin: bottom;
+}
+
+.auth__decoracao span:nth-child(3n) {
+  background: linear-gradient(180deg, #a5b4fc, #6366f1);
+}
+
+.auth__decoracao span:nth-child(4n) {
+  background: linear-gradient(180deg, #fca5a5, #f0574a);
+}
+
+.auth__formulario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.auth__caixa {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth__logo-mobile {
+  display: none;
+  margin-bottom: 28px;
+}
+
+.auth__caixa h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.auth__subtitulo {
+  color: var(--texto-suave);
+  margin-bottom: 28px;
+}
+
+.auth__caixa .botao--grande {
+  margin-top: 4px;
+}
+
+.auth__rodape {
+  margin-top: 22px;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 14.5px;
+}
+
+.auth__rodape a {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  .auth__marca {
+    display: none;
+  }
+
+  .auth__logo-mobile {
+    display: block;
+  }
+
+  .auth__formulario {
+    align-items: flex-start;
+    padding-top: 48px;
+  }
+}

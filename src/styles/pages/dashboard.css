@@ -1,0 +1,177 @@
+/* ==========================================================================
+   PÁGINA — Dashboard
+   ========================================================================== */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard__topo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.saudacao {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Atalhos de cadastro */
+.atalhos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.atalho {
+  --cor: var(--marca);
+  --fundo-atalho: var(--marca-clara);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: var(--raio);
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+  color: var(--texto);
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.atalho svg {
+  color: var(--cor);
+  background: var(--fundo-atalho);
+  border-radius: 8px;
+  padding: 3px;
+  width: 26px;
+  height: 26px;
+}
+
+.atalho:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: var(--cor);
+  box-shadow: var(--sombra);
+}
+
+.atalho--saida {
+  --cor: var(--negativo);
+  --fundo-atalho: var(--negativo-fundo);
+}
+
+.atalho--entrada {
+  --cor: var(--positivo);
+  --fundo-atalho: var(--positivo-fundo);
+}
+
+.atalho--receita {
+  --cor: var(--azul);
+  --fundo-atalho: var(--azul-fundo);
+}
+
+.atalho--ia {
+  --cor: var(--roxo);
+  --fundo-atalho: var(--roxo-fundo);
+}
+
+/* Grade de painéis */
+.grade-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas:
+    'barras donut'
+    'evolucao recentes';
+  gap: 20px;
+}
+
+.area-barras {
+  grid-area: barras;
+}
+
+.area-donut {
+  grid-area: donut;
+}
+
+.area-evolucao {
+  grid-area: evolucao;
+}
+
+.area-recentes {
+  grid-area: recentes;
+}
+
+/* Banner do assistente */
+.banner-ia {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  border-radius: var(--raio-grande);
+  border: 1px solid #ddd6fe;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(139, 92, 246, 0.12), transparent 50%),
+    linear-gradient(120deg, #faf8ff, #ffffff 60%, #ecfdf5);
+}
+
+.banner-ia > div {
+  flex: 1;
+}
+
+.banner-ia strong {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.banner-ia p {
+  color: var(--texto-secundario);
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.banner-ia__icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #8b5cf6, #059669);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1100px) {
+  .grade-dashboard {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'barras'
+      'donut'
+      'evolucao'
+      'recentes';
+  }
+}
+
+@media (max-width: 640px) {
+  .atalho {
+    flex: 1 1 calc(50% - 10px);
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  .banner-ia {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .banner-ia .botao {
+    width: 100%;
+  }
+}

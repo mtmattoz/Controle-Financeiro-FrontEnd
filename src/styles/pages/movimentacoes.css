@@ -1,0 +1,87 @@
+/* ==========================================================================
+   PÁGINAS — Transações e Receitas
+   ========================================================================== */
+
+.movimentacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.barra-pagina {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.resumo-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filtros {
+  padding: 16px;
+}
+
+.filtros__grade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filtros__grade .busca {
+  flex: 1 1 240px;
+}
+
+.filtros__grade > select {
+  width: auto;
+  min-width: 200px;
+  flex: 0 1 220px;
+}
+
+.filtros__grade--linha {
+  flex: 1;
+}
+
+.filtros__periodo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.filtros__periodo input {
+  width: 160px;
+}
+
+@media (max-width: 640px) {
+  .barra-pagina > .botao {
+    width: 100%;
+  }
+
+  .filtros__grade > select,
+  .segmentado {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .segmentado button {
+    flex: 1;
+  }
+
+  .filtros__periodo {
+    flex: 1 1 100%;
+  }
+
+  .filtros__periodo input {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+}

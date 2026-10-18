@@ -1,0 +1,83 @@
+/* ==========================================================================
+   PÁGINA — Relatórios
+   ========================================================================== */
+
+.relatorios {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.relatorios__secao {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.secao-titulo h2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.secao-titulo p {
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  text-transform: capitalize;
+}
+
+.secao-titulo--com-acoes {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.secao-titulo__acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.grade-relatorios {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.relatorios__donut .donut {
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.relatorios__donut .donut__grafico {
+  flex: 0 0 280px;
+}
+
+.relatorios__donut .donut__legenda {
+  flex: 1;
+}
+
+@media (max-width: 1000px) {
+  .grade-relatorios {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .relatorios__donut .donut {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .relatorios__donut .donut__grafico {
+    flex-basis: auto;
+  }
+
+  .secao-titulo__acoes,
+  .secao-titulo__acoes .botao {
+    width: 100%;
+  }
+}

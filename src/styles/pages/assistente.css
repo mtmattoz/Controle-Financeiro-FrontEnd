@@ -1,0 +1,384 @@
+/* ==========================================================================
+   PÁGINA — Assistente financeiro com IA
+   ========================================================================== */
+
+.assistente {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 20px;
+  align-items: start;
+}
+
+.assistente__chat {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  min-height: calc(100vh - var(--header-altura) - 80px);
+}
+
+.assistente__lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: calc(var(--header-altura) + 28px);
+}
+
+/* Conversa ---------------------------------------------------------------- */
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--header-altura) - 170px);
+}
+
+.chat__boas-vindas {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  max-width: 520px;
+  padding: 24px 0;
+}
+
+.chat__boas-vindas-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #8b5cf6, #059669);
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(139, 92, 246, 0.6);
+  margin-bottom: 4px;
+}
+
+.chat__boas-vindas h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.chat__boas-vindas p {
+  color: var(--texto-secundario);
+}
+
+.chat__exemplos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chat__mensagem {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 88%;
+}
+
+.chat__mensagem--usuario {
+  align-self: flex-end;
+}
+
+.chat__mensagem--ia {
+  align-self: flex-start;
+}
+
+.chat__mensagem--sistema {
+  align-self: center;
+  max-width: 100%;
+}
+
+.chat__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--roxo-fundo);
+  color: var(--roxo);
+  flex-shrink: 0;
+}
+
+.chat__avatar--usuario {
+  background: var(--marca-clara);
+  color: var(--marca);
+}
+
+.chat__balao {
+  padding: 11px 15px;
+  border-radius: 16px;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.chat__mensagem--usuario .chat__balao {
+  background: var(--marca);
+  color: #fff;
+  border-bottom-right-radius: 5px;
+}
+
+.chat__mensagem--ia .chat__balao {
+  background: var(--superficie-suave);
+  border: 1px solid var(--borda);
+  border-bottom-left-radius: 5px;
+}
+
+.chat__balao--erro {
+  background: var(--negativo-fundo) !important;
+  border-color: #fbd5d0 !important;
+  color: #9a3a31;
+}
+
+.chat__sistema {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chat__sistema--salvo {
+  background: var(--positivo-fundo);
+  color: var(--marca-escura);
+}
+
+.chat__sistema--cancelado {
+  background: var(--superficie-suave);
+  color: var(--texto-suave);
+  border: 1px solid var(--borda);
+}
+
+/* Indicador "digitando" */
+.chat__digitando {
+  display: inline-flex;
+  gap: 5px;
+  padding: 14px 16px;
+}
+
+.chat__digitando span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--roxo);
+  opacity: 0.4;
+  animation: pulsar 1.1s ease-in-out infinite;
+}
+
+.chat__digitando span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chat__digitando span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.chat__confirmacao {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+}
+
+.chat__carregando {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+.chat__composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--borda);
+  background: var(--superficie);
+}
+
+.chat__composer textarea {
+  min-height: 46px;
+  max-height: 140px;
+  field-sizing: content;
+}
+
+.chat__composer .botao {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Card de confirmação ----------------------------------------------------- */
+
+.confirmacao-ia {
+  width: 100%;
+  max-width: 560px;
+  background: var(--superficie);
+  border: 1px solid #ddd6fe;
+  border-radius: var(--raio-grande);
+  box-shadow: 0 12px 32px -14px rgba(139, 92, 246, 0.35);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.confirmacao-ia__cabecalho h3 {
+  font-size: 17px;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.confirmacao-ia__cabecalho p {
+  color: var(--texto-suave);
+  font-size: 13.5px;
+}
+
+.confirmacao-ia__selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--roxo-fundo);
+  color: #6d3fe0;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.confirmacao-ia__aviso {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--raio);
+  background: var(--laranja-fundo);
+  border: 1px solid #fde3b6;
+  color: #8a5a06;
+  font-size: 13.5px;
+}
+
+.confirmacao-ia__aviso svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.confirmacao-ia__aviso p {
+  margin-bottom: 10px;
+}
+
+.confirmacao-ia__categoria {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--texto-secundario);
+}
+
+.confirmacao-ia__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Lateral ----------------------------------------------------------------- */
+
+.passos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.passos li {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--texto-secundario);
+}
+
+.passos li span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--marca-clara);
+  color: var(--marca-escura);
+  font-size: 12.5px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.seguranca-ia {
+  display: flex;
+  gap: 12px;
+  color: var(--texto-secundario);
+  font-size: 14px;
+}
+
+.seguranca-ia svg {
+  color: var(--marca);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 1100px) {
+  .assistente {
+    grid-template-columns: 1fr;
+  }
+
+  .assistente__lateral {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .chat {
+    padding: 16px;
+    max-height: none;
+  }
+
+  .chat__mensagem {
+    max-width: 100%;
+  }
+
+  .chat__composer {
+    padding: 12px;
+    position: sticky;
+    bottom: 0;
+  }
+
+  .confirmacao-ia {
+    padding: 18px 16px;
+  }
+
+  .confirmacao-ia__acoes .botao {
+    flex: 1;
+  }
+}

@@ -1,0 +1,317 @@
+/* ==========================================================================
+   LAYOUT — estrutura da aplicação: sidebar, cabeçalho e área de conteúdo.
+   ========================================================================== */
+
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-largura) 1fr;
+  min-height: 100vh;
+  transition: grid-template-columns 0.25s ease;
+}
+
+.app--recolhido {
+  grid-template-columns: var(--sidebar-recolhida) 1fr;
+}
+
+.app__conteudo {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+  padding: 28px 32px 48px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.pagina {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Sidebar ----------------------------------------------------------------- */
+
+.sidebar {
+  background: var(--superficie);
+  border-right: 1px solid var(--borda);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px;
+  gap: 18px;
+}
+
+.sidebar--desktop {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden auto;
+}
+
+.sidebar__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 4px;
+}
+
+.sidebar__recolher svg {
+  transition: transform 0.25s ease;
+}
+
+.app--recolhido .sidebar__recolher svg {
+  transform: rotate(180deg);
+}
+
+.app--recolhido .sidebar--desktop .sidebar__topo {
+  flex-direction: column;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: var(--raio);
+  color: var(--texto-secundario);
+  font-weight: 600;
+  font-size: 14.5px;
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.sidebar__link:hover {
+  text-decoration: none;
+  background: var(--superficie-suave);
+  color: var(--texto);
+}
+
+.sidebar__link--ativo,
+.sidebar__link--ativo:hover {
+  color: var(--marca-escura);
+  background: transparent;
+}
+
+.sidebar__indicador {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--raio);
+  background: var(--marca-clara);
+  box-shadow: inset 0 0 0 1px rgba(5, 150, 105, 0.14);
+  z-index: 0;
+}
+
+.sidebar__icone,
+.sidebar__rotulo {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.app--recolhido .sidebar--desktop .sidebar__link {
+  justify-content: center;
+  padding: 11px 0;
+}
+
+.app--recolhido .sidebar--desktop .sidebar__rotulo,
+.app--recolhido .sidebar--desktop .sidebar__usuario-nome {
+  display: none;
+}
+
+.sidebar__rodape {
+  border-top: 1px solid var(--borda);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar__usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  min-width: 0;
+}
+
+.sidebar__usuario-nome {
+  font-weight: 700;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar__sair {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  background: none;
+  padding: 10px 12px;
+  border-radius: var(--raio);
+  color: var(--texto-secundario);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sidebar__sair:hover {
+  background: var(--negativo-fundo);
+  color: var(--negativo);
+}
+
+.app--recolhido .sidebar--desktop .sidebar__sair,
+.app--recolhido .sidebar--desktop .sidebar__usuario {
+  justify-content: center;
+}
+
+/* Menu do celular */
+.sidebar--mobile {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(300px, 86vw);
+  z-index: 60;
+  box-shadow: var(--sombra-elevada);
+}
+
+.sidebar-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.32);
+  backdrop-filter: blur(2px);
+  z-index: 55;
+}
+
+/* Cabeçalho --------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--header-altura);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 32px;
+  background: rgba(245, 247, 246, 0.86);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--borda);
+}
+
+.header__menu {
+  display: none;
+}
+
+.header__titulo {
+  min-width: 0;
+  flex: 1;
+}
+
+.header__titulo h1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.header__titulo p {
+  color: var(--texto-suave);
+  font-size: 13.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+  color: var(--texto);
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.header__usuario:hover {
+  text-decoration: none;
+  border-color: var(--borda-forte);
+}
+
+.header__usuario-nome {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsivo -------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .header__usuario-nome {
+    display: none;
+  }
+
+  .header__usuario {
+    padding: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app,
+  .app--recolhido {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar--desktop {
+    display: none;
+  }
+
+  .header {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  .header__menu {
+    display: inline-flex;
+  }
+
+  .header__titulo p,
+  .header__config {
+    display: none;
+  }
+
+  .header__nova span {
+    display: none;
+  }
+
+  .header__nova {
+    padding: 0;
+    width: 42px;
+    justify-content: center;
+  }
+
+  .app__main {
+    padding: 20px 16px 40px;
+  }
+}

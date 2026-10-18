@@ -1,0 +1,197 @@
+/* ==========================================================================
+   BASE — variáveis de design (cores, tipografia, espaçamento) e reset.
+   Tema exclusivamente claro.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Superfícies */
+  --fundo: #f5f7f6;
+  --superficie: #ffffff;
+  --superficie-suave: #f8faf9;
+  --borda: #e6ebe9;
+  --borda-forte: #d5ddda;
+
+  /* Texto (grafite) */
+  --texto: #1f2a2e;
+  --texto-secundario: #4b5a5e;
+  --texto-suave: #7b8a87;
+
+  /* Marca — verde esmeralda */
+  --marca: #059669;
+  --marca-escura: #047857;
+  --marca-clara: #ecfdf5;
+  --marca-media: #a7f3d0;
+
+  /* Significado financeiro */
+  --positivo: #059669;
+  --positivo-fundo: #ecfdf5;
+  --negativo: #e5483b;
+  --negativo-coral: #f0574a;
+  --negativo-fundo: #fef1ef;
+
+  /* Complementares (gráficos) */
+  --azul: #3b82f6;
+  --azul-fundo: #eff6ff;
+  --roxo: #8b5cf6;
+  --roxo-fundo: #f5f3ff;
+  --laranja: #f59e0b;
+  --laranja-fundo: #fffbeb;
+
+  /* Forma */
+  --raio-pequeno: 8px;
+  --raio: 12px;
+  --raio-grande: 16px;
+  --sombra-suave: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+  --sombra: 0 4px 16px -4px rgba(16, 24, 40, 0.08), 0 2px 4px -2px rgba(16, 24, 40, 0.04);
+  --sombra-elevada: 0 20px 40px -12px rgba(16, 24, 40, 0.18);
+
+  /* Tipografia */
+  --fonte: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --sidebar-largura: 256px;
+  --sidebar-recolhida: 76px;
+  --header-altura: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'tnum' 1; /* números com largura fixa: alinham valores */
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--marca);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  background: var(--superficie-suave);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(5, 150, 105, 0.35);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--marca-media);
+}
+
+/* Utilitários ------------------------------------------------------------- */
+
+.texto-suave {
+  color: var(--texto-suave);
+}
+
+.positivo {
+  color: var(--positivo);
+}
+
+.negativo {
+  color: var(--negativo);
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.girando {
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Barra de rolagem discreta */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--borda-forte) transparent;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
